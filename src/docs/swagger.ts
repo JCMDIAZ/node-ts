@@ -15,10 +15,14 @@ const swaggerDefinition: OAS3Definition = {
       url: "http://localhost:3001/api",
     },
     {
-      url: "https://afternoon-journey-32165.herokuapp.com/api",
+      url: "http://18.223.12.245/api",
     },
   ],
-  tags: [{ name: "Auth", description:"Área de Autorización" }, { name: "Tracks", description:"Área de canciones"}],
+  tags: [
+    { name: "Auth", description:"Área de Autorización" }, 
+    { name: "Tracks", description:"Área de canciones"},
+    { name: "Catalogos", description:"Área de catalogos"},
+  ],
   components: {
     securitySchemes:{
         bearerAuth:{
@@ -114,6 +118,23 @@ const swaggerDefinition: OAS3Definition = {
           },
         },
       },
+      catalogos: {
+        type: "object",
+        properties:{
+          grupo: {
+            type: "string",
+          },
+          indice: {
+            type: "number",
+          },
+          valorStr: {
+            type: "string",
+          },
+          valor: {
+            type: "string",
+          },
+        }
+      }
     },
   },
   paths:{
@@ -437,7 +458,66 @@ const swaggerDefinition: OAS3Definition = {
           "422":{ "description":"Error de validación." },
         }
       }
-    }
+    },
+    "/catalogos": {
+      "get": {
+        "tags": ["Catalogos"],
+        "summary": "Listar catalogos del sistema.",
+        "description": "Obten listado de los parámetros del sistema.",
+        "security": [{"bearerAuth":[]}],
+        "responses":{
+          "200":{ 
+            "description":"Obten listado de los parámetros del sistema.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref":"#/components/schemas/catalogos",
+                  }
+                }
+              }
+            }
+          },
+          "401":{ "description":"Error de autorización." },
+          "422":{ "description":"Error de validación." },
+        }
+      },
+    },
+    "/catalogos/{grupo}": {
+      "get": {
+        "tags": ["Catalogos"],
+        "summary": "Listar catalogos del sistema.",
+        "description": "Obten listado de los parámetros del sistema.",
+        "security": [{"bearerAuth":[]}],
+        "parameters": [{
+          "name":"grupo",
+          "in":"path",
+          "description": "grupo de catalogo a retornar",
+          "required":true,
+          "schema": {
+            "type":"string"
+          }
+        }],
+        "responses":{
+          "200":{ 
+            "description":"Obten listado de los parámetros del sistema.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref":"#/components/schemas/catalogos",
+                  }
+                }
+              }
+            }
+          },
+          "401":{ "description":"Error de autorización." },
+          "422":{ "description":"Error de validación." },
+        }
+      },
+    },
   }
 };
 

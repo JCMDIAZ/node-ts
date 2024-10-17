@@ -17,9 +17,6 @@ const UserModel = sequelize.define<UserModel>(
             type:DataTypes.STRING,
             allowNull: false,
         },
-        age:{
-            type:DataTypes.NUMBER,
-        },
         email:{
             type:DataTypes.STRING,
         },
@@ -27,7 +24,10 @@ const UserModel = sequelize.define<UserModel>(
             type:DataTypes.STRING,
         },
         role:{
-            type:DataTypes.ENUM(...["admin","user"]), 
+            type:DataTypes.ENUM(...["su","ad","ma","al","in"]), 
+        },
+        birthday:{
+            type:DataTypes.DATE,
         }
     },
     {

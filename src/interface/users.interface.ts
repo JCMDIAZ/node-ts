@@ -3,13 +3,16 @@ import { Request } from "express";
 
 export interface User extends Auth  {
     name: string,
-    age: number,
-    role: string[]
+    role: string[],
+    birthday: Date,
 }
 
 export enum Roles {
-    user = "user",
-    admin = "admin"
+    superUser = "su",
+    administrativo = "ad",
+    maestro = "ma",
+    alumno = "al",
+    instituido = "in"
 }
 
 export interface RequestExt extends Request {
