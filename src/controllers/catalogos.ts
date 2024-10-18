@@ -1,5 +1,4 @@
 import { Response } from "express";
-import { Catalogos } from "../interface/catalogos.interface";
 import { getCatalogos, getCatalogosByGrupo } from "../services/catalogos";
 import { RequestExt } from "../interface/users.interface";
 import { handleHttpError } from "../utils/handleError";

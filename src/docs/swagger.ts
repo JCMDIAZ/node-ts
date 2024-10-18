@@ -4,6 +4,7 @@ import { getPathTracks, getPathTracksId, getSchemaTracks } from "./tracks";
 import { getPathStorage, getPathStorageId, getSchemaStorage } from "./storage";
 import { getPathCatalogos, getPathCatalogosGrupo, getSchemaCatalogos } from "./catalogos";
 import { getPathAsentamientos, getPathEstados, getPathMunicipios, getSchemaAsentamientos, getSchemaEstados, getSchemaMunicipios } from "./edomuncol";
+import { getPathGeneracion, getPathListGeneraciones, getSchemaGeneracion, getSchemaListGeneraciones } from "./generacion";
 
 /**
  * API Config Info
@@ -29,6 +30,7 @@ const swaggerDefinition: OAS3Definition = {
     { name: "Storage", description:"Área de almacenamiento de archivos"},
     { name: "Catalogos", description:"Área de catalogos"},
     { name: "EdoMunCol", description:"Área de Estados, Municipios y Colonias"},
+    { name: "Generacion", description:"Área de Generaciones"},
   ],
   components: {
     securitySchemes:{
@@ -46,6 +48,8 @@ const swaggerDefinition: OAS3Definition = {
       estados: getSchemaEstados,
       municipios: getSchemaMunicipios,
       asentamientos: getSchemaAsentamientos,
+      generacion: getSchemaGeneracion,
+      listgeneraciones: getSchemaListGeneraciones,
     },
   },
   paths:{
@@ -60,6 +64,8 @@ const swaggerDefinition: OAS3Definition = {
     "/edomuncol/estados": getPathEstados,
     "/edomuncol/municipios/{c_estado}": getPathMunicipios,
     "/edomuncol/asentamientos/{c_estado}/{c_munpio}": getPathAsentamientos,
+    "/generacion": getPathGeneracion,
+    "/generacion/list": getPathListGeneraciones,
   }
 };
 

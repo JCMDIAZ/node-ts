@@ -1,5 +1,3 @@
-import { where } from "sequelize";
-import { Catalogos } from "../interface/catalogos.interface";
 import CatalogosModel from '../models/mysql/catalogos';
 
 const getCatalogos = async () => {
