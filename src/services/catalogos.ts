@@ -16,4 +16,4 @@ const getCatalogosByGrupo = async (grupo: string) => {
     return resposeCatalogos;
 }
 
-export { getCatalogos, getCatalogosByGrupo }
+export { getCatalogos, getCatalogosByGrupo };

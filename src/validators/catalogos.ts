@@ -2,7 +2,7 @@ import {Request, Response, NextFunction} from "express";
 import { check, validationResult } from "express-validator";
 import { validateResults } from "../utils/handleValidator";
 
-const validatorGetItemCataogos = [
+const validatorGetItemCatalogos = [
     check("grupo")
     .exists()
     .notEmpty(),
@@ -11,4 +11,4 @@ const validatorGetItemCataogos = [
     }
 ];
 
-export { validatorGetItemCataogos };
+export { validatorGetItemCatalogos };
