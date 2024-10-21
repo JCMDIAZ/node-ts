@@ -17,28 +17,28 @@ const GeneracionModel = sequelize.define<GeneracionModel>(
             type: DataTypes.STRING,
         },
         fecha_inicio: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
         },
         fecha_fin: {
-            type: DataTypes.DATE
+            type: DataTypes.DATE,
         },
         director_inicio: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
         },
         director_termino: {
-            type: DataTypes.STRING
+            type: DataTypes.STRING,
         },
         total_alumnos_inicio: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
         },
         total_alumnos_termino: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
         },
         total_centros_presenciales: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
         },
         total_centros_virtuales: {
-            type: DataTypes.INTEGER
+            type: DataTypes.INTEGER,
         },
     },
     {
