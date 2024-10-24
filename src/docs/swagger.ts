@@ -6,6 +6,7 @@ import { getPathCatalogos, getPathCatalogosGrupo, getSchemaCatalogos } from "./c
 import { getPathAsentamientos, getPathEstados, getPathMunicipios, getSchemaAsentamientos, getSchemaEstados, getSchemaMunicipios } from "./edomuncol";
 import { getPathGeneracion, getPathListGeneraciones, getSchemaGeneracion, getSchemaListGeneraciones } from "./generacion";
 import { getPathCentrosFormacionList, getPathCentrosFormacion, getSchemaCentrosFormacion, getSchemaCentrosFormacionList } from "./centrosformacion";
+import { getPathParroquias, getPathParroquiasList, getSchemaParroquias, getSchemaParroquiasList } from "./parroquias";
 
 /**
  * API Config Info
@@ -33,6 +34,7 @@ const swaggerDefinition: OAS3Definition = {
     { name: "EdoMunCol", description:"Área de Estados, Municipios y Colonias"},
     { name: "Generacion", description:"Área de Generaciones"},
     { name: "Centros de Formacion", description:"Área de Centros de Formación" },
+    { name: "Parroquias", description:"Área de Parroquias" },
   ],
   components: {
     securitySchemes:{
@@ -54,6 +56,8 @@ const swaggerDefinition: OAS3Definition = {
       listgeneraciones: getSchemaListGeneraciones,
       centrosformacion: getSchemaCentrosFormacion,
       centrosformacionlist: getSchemaCentrosFormacionList,
+      parroquias: getSchemaParroquias,
+      parroquiaslist: getSchemaParroquiasList,
     },
   },
   paths:{
@@ -72,6 +76,8 @@ const swaggerDefinition: OAS3Definition = {
     "/generacion/list": getPathListGeneraciones,
     "/centrosformacion": getPathCentrosFormacion,
     "/centrosformacion/list": getPathCentrosFormacionList,
+    "parroquias": getPathParroquias,
+    "parroquias/list": getPathParroquiasList,
   }
 };
 

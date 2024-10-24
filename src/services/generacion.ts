@@ -3,7 +3,7 @@ import GeneracionModel from "../models/mysql/generacion";
 
 const getListGeneraciones = async () => {
     const responseListGeneraciones = await ListGeneracionModel.sequelize?.query('SELECT id, nombre_generacion FROM generacion');
-    return responseListGeneraciones?.[0]
+    return responseListGeneraciones?.[0];
 }
 
 const getGeneraciones = async () => {
