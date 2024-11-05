@@ -3,7 +3,7 @@ import { check } from "express-validator";
 import { validateResults } from "../utils/handleValidator";
 
 const validatorGetItemCentrosFormacion = [
-    check("id")
+    check("id_generacion")
     .exists()
     .notEmpty(),
     (req:Request, res:Response, next:NextFunction) => {

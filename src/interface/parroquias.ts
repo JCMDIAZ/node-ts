@@ -17,4 +17,5 @@ export interface ParroquiaList {
     id: number,
     nombre: string,
     municipio: string,
+	responsable_nombre: string,
 }

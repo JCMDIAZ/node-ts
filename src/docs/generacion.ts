@@ -5,10 +5,12 @@ const getSchemaGeneracion = {
         type: "string",
       },
       fecha_inicio: {
-        type: "date",
+        type: "string",
+        format: "date"
       },
       fecha_fin: {
-        type: "date",
+        type: "string",
+        format: "date"
       },
       director_inicio: {
         type: "string",

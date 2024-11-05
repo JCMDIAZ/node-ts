@@ -7,7 +7,7 @@ const getParroquias = async() => {
 }
 
 const getParroquiasList = async() => {
-    const responseParroquiasList = await ParroquiasListModel.sequelize?.query('SELECT id, nombre, municipio FROM parroquias');
+    const responseParroquiasList = await ParroquiasListModel.sequelize?.query('SELECT p.id, CONCAT(c.valorStr, " ", p.nombre) AS nombre, p.municipio, responsable_nombre FROM parroquias p INNER JOIN catalogos c ON p.id_tipo = c.indice AND c.grupo = "tipoiglesia" ORDER BY nombre');
     return responseParroquiasList?.[0];
 }
 

@@ -17,6 +17,9 @@ const ParroquiasListModel = sequelize.define<ParroquiasListModel>(
         municipio: {
             type: DataTypes.STRING,
         },
+        responsable_nombre: {
+            type: DataTypes.STRING,
+        },
     },
     {
         freezeTableName: true,

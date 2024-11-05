@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-import express from "express";
+import express, { Request, Response } from "express";
 import cors from "cors";
 import swaggerUI from "swagger-ui-express";
 import { openApiConfiguration } from "./docs/swagger";
@@ -9,6 +9,10 @@ import loggerStream from "./utils/handleLogger";
 import dbConnectNoSql from "./config/mongo";
 import { dbConnectMySQL } from "./config/mysql";
 import {router} from "./routes";
+
+import nodemailer from "nodemailer";
+import bodyParser from 'body-parser';
+import { authMiddleware } from "./middleware/sessions";
 
 //import swaggerOutput from "./swagger_output.json";
 
@@ -32,6 +36,35 @@ morganBody(app,{
 })
 
 const port = process.env.port || 3000;
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.post('/deliver', authMiddleware, async (req: Request, res: Response) => {
+  let { recipient, subject, text, html, } = req.body;
+  const transporter = nodemailer.createTransport({
+    host: "mail.ministerioslaicalesmty.org",
+    port: 587,
+    secure: false,
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD, // the app password Not your gmail password
+    },
+    logger: true,
+  });
+
+  const info = await transporter.sendMail({
+      from: process.env.EMAIL, 
+      to: recipient,
+      subject: subject, 
+      text: text,
+      html: html
+  });
+
+  console.log("Message sent: %s", info.messageId);
+
+  res.send("Message sent")
+})
 
 // /**
 //  * Aqui invocamos a las rutas

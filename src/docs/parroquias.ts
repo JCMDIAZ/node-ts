@@ -52,6 +52,9 @@ const getSchemaParroquiasList = {
         municipio: {
             type: "string",
         },
+        responsable_nombre: {
+            type: "string",
+        }
     }
   };
 
