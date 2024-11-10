@@ -3,6 +3,7 @@ export interface DatosRegistro {
 	primerapellido: string,
 	segundoapellido: string,
 	nacimiento_fecha: Date,
+	nacimiento_entidad: string,
 	nacimiento_lugar: string,
 	sexo: string,
 	curp: string,

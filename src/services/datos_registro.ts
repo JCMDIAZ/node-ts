@@ -2,13 +2,13 @@ import DatosRegistroModel from "../models/mysql/datos_registro";
 import { DatosRegistro } from "../interface/datos_regitro";
 import Response from 'express';
 
-const getDatosRegistroBy = async (id: string|undefined, matrricula: string|undefined, curp: string|undefined) => {
+const getDatosRegistroBy = async (id: string|undefined, matricula: string|undefined, curp: string|undefined) => {
     const responseDatosRegistro = await DatosRegistroModel.sequelize?.query(
         "SELECT * FROM datos_registro WHERE id = :id OR matricula = :matricula OR curp = :curp",
         {
             replacements: {
                 id: id??0,
-                matrricula: matrricula??'',
+                matricula: matricula??'',
                 curp: curp??'',
             }
         });

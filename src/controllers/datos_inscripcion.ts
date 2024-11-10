@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { handleHttpError } from "../utils/handleError";
-import { getDatosRegistroBy, insertDatosRegistro, updateDatosRegistro } from "../services/datos_registro";
+import { getDatosInscripcionBy, insertDatosInscripcion, updateDatosInscripcion } from "../services/datos_inscrpcion";
 import { RequestExt, User } from "../interface/users.interface";
 
 /**
@@ -10,9 +10,9 @@ import { RequestExt, User } from "../interface/users.interface";
  */
 const getItem = async ({ params, user }: RequestExt, res: Response) => {
     try {
-        const { id, matricula, curp } = params;
-        const responseDatosRegistro = await getDatosRegistroBy(id, matricula, curp);
-        res.send({ responseDatosRegistro, user });
+        const { id_registro } = params;
+        const responseDatosInscripcion = await getDatosInscripcionBy(parseInt(id_registro));
+        res.send({ responseDatosInscripcion, user });
     } catch (e) {
         handleHttpError(res,"ERROR_GET_ITEM");
     }
@@ -25,8 +25,8 @@ const getItem = async ({ params, user }: RequestExt, res: Response) => {
  */
 const createItem = async ({ body, user }: RequestExt, res: Response) => {
     try{
-        const responseDatosRegistro = await insertDatosRegistro(body);
-        res.send({ responseDatosRegistro, user });
+        const responseDatosInscripcion = await insertDatosInscripcion(body);
+        res.send({ responseDatosInscripcion, user });
     } catch(e) {
         console.log(e);
         handleHttpError(res,"ERROR_CREATE_ITEMS");
@@ -41,8 +41,8 @@ const createItem = async ({ body, user }: RequestExt, res: Response) => {
 const updateItem = async ({ params, body, user }: RequestExt, res: Response) => {
     try{
         const { id } = params;
-        const responseDatosRegistro = await updateDatosRegistro(id, body);
-        res.send({ responseDatosRegistro, user });
+        const responseDatosInscripcion = await updateDatosInscripcion(id, body);
+        res.send({ responseDatosInscripcion, user });
     } catch(e) {
         handleHttpError(res,"ERROR_UPDATE_ITEMS");
     };

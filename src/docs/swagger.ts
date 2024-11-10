@@ -8,6 +8,7 @@ import { getPathGeneracion, getPathListGeneraciones, getSchemaGeneracion, getSch
 import { getPathCentrosFormacionList, getPathCentrosFormacion, getSchemaCentrosFormacion, getSchemaCentrosFormacionList } from "./centrosformacion";
 import { getPathParroquias, getPathParroquiasList, getSchemaParroquias, getSchemaParroquiasList } from "./parroquias";
 import { getPathDatosRegistro, getPathDatosRegistroId, getPathDatosRegistroIMC, getSchemaDatosRegistro } from "./datos_registro";
+import { getPathDatosInscripcion, getPathDatosInscripcionId, getPathDatosInscripcionIMC, getSchemaDatosInscripcion } from "./datos_inscripcion";
 
 /**
  * API Config Info
@@ -37,6 +38,7 @@ const swaggerDefinition: OAS3Definition = {
     { name: "Centros de Formacion", description:"Área de Centros de Formación" },
     { name: "Parroquias", description:"Área de Parroquias" },
     { name: "Datos Registro", description:"Área de Datos Registro" },
+    { name: "Datos Inscripción", description:"Área de Datos Inscripción" },
   ],
   components: {
     securitySchemes:{
@@ -61,6 +63,7 @@ const swaggerDefinition: OAS3Definition = {
       parroquias: getSchemaParroquias,
       parroquiaslist: getSchemaParroquiasList,
       datos_registro: getSchemaDatosRegistro,
+      datos_inscripcion: getSchemaDatosInscripcion,
     },
   },
   paths:{
@@ -84,6 +87,9 @@ const swaggerDefinition: OAS3Definition = {
     "/datos_registro/": getPathDatosRegistro,
     "/datos_registro/{id}": getPathDatosRegistroId,
     "/datos_registro/{id}/{matricula}/{curp}": getPathDatosRegistroIMC,
+    "/datos_inscripcion/": getPathDatosInscripcion,
+    "/datos_inscripcion/{id}": getPathDatosInscripcionId,
+    "/datos_inscripcion/{id_registro}": getPathDatosInscripcionIMC,
   }
 };
 

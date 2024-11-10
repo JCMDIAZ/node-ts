@@ -10,6 +10,7 @@ const DatosRegistroModel = sequelize.define<DatosRegistroModel>(
     "datos_registro",
     {
         id: {
+            autoIncrement: true,
             primaryKey: true,
             type: DataTypes.INTEGER.UNSIGNED,
         },
@@ -24,6 +25,9 @@ const DatosRegistroModel = sequelize.define<DatosRegistroModel>(
         },
         nacimiento_fecha: {
             type: DataTypes.DATE,
+        },
+        nacimiento_entidad: {
+            type: DataTypes.STRING,
         },
         nacimiento_lugar: {
             type: DataTypes.STRING,

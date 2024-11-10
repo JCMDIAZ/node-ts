@@ -1,5 +1,3 @@
-import { format } from "path";
-
 const getSchemaDatosRegistro = {
     type: "object",
     required: [

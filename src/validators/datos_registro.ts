@@ -17,8 +17,7 @@ const validatorDatosRegistro = [
     .isLength({min:3, max:50}),
     check("nacimiento_fecha")
     .exists()
-    .notEmpty()
-    .isDate(),
+    .notEmpty(),
     check("nacimiento_lugar")
     .exists()
     .notEmpty()
@@ -30,11 +29,11 @@ const validatorDatosRegistro = [
     check("curp")
     .exists()
     .notEmpty()
-    .isLength({min:20, max:20}),
+    .isLength({min:18, max:18}),
     check("telefono")
     .exists()
     .notEmpty()
-    .isLength({min:10, max:10}),
+    .isLength({min:12, max:12}),
     check("mail")
     .exists()
     .notEmpty()
@@ -48,20 +47,13 @@ const validatorDatosRegistro = [
     .notEmpty()
     .isBoolean(),
     check("matricula")
-    .exists()
-    .isLength({min:7, max:7}),
+    .exists(),
     check("estatusformacion")
     .exists()
     .isNumeric(),
-    check("fechainstitucion")
-    .exists()
-    .isDate(),
     check("estatusministerio")
     .exists()
     .isNumeric(),
-    check("fechadefusion")
-    .exists()
-    .isDate(),
     check("id_user")
     .exists()
     .isNumeric(),
