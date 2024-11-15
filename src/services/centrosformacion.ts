@@ -8,7 +8,7 @@ const getCentrosFormacion = async () => {
 
 const getCentrosFormacionList = async (id_generacion: number) => {
     const resposeCentrosFormacionList = await CentrosFormacionListModel.sequelize?.query(
-        'SELECT centro_numero, centro_nombre, centro_horario FROM centrosformacion WHERE id_generacion = :id_generacion',
+        'SELECT id, centro_numero, centro_nombre, centro_horario FROM centrosformacion WHERE id_generacion = :id_generacion',
         {
             replacements: {
                 id_generacion: id_generacion,

@@ -1,4 +1,5 @@
 export interface CentrosFormacionList {
+	id: number,
     centro_numero: number,
     centro_nombre: string,
     centro_horario: string;

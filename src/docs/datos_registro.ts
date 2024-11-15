@@ -73,7 +73,7 @@ const getSchemaDatosRegistro = {
 
   const getPathDatosRegistro = {
     "post": {
-      "tags": ["DatosRegistro"],
+      "tags": ["Datos Registro"],
       "summary": "Ingresar información de Registro.",
       "description": "Ingresar un Registro y obtener el detalle.",
       "security": [{"bearerAuth":[]}],
@@ -110,7 +110,7 @@ const getSchemaDatosRegistro = {
 
   const getPathDatosRegistroId = {
     "put": {
-      "tags": ["DatosRegistro"],
+      "tags": ["Datos Registro"],
       "summary": "Actualiza registro.",
       "description": "Actualiza un registro y obtenie el detalle del registro.",
       "security": [{"bearerAuth":[]}],
@@ -156,7 +156,7 @@ const getSchemaDatosRegistro = {
 
   const getPathDatosRegistroIMC = {
     "get": {
-      "tags": ["DatosRegistro"],
+      "tags": ["Datos Registro"],
       "summary": "Detalle registro.",
       "description": "Obtenie el detalle del registro.",
       "security": [{"bearerAuth":[]}],

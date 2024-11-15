@@ -31,18 +31,6 @@ const validatorDatosDomicilio = [
     .exists()
     .notEmpty()
     .isLength({min:5, max:5}),
-    check("referencias")
-    .exists()
-    .notEmpty()
-    .isLength({min:3, max:250}),
-    check("tipovivienda")
-    .exists()
-    .notEmpty()
-    .isNumeric(),
-    check("estatusvivienda")
-    .exists()
-    .notEmpty()
-    .isNumeric(),
     check("vivecon")
     .exists()
     .notEmpty()

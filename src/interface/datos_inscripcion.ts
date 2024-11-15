@@ -6,6 +6,7 @@ export interface DatosInscripcion {
 	parrocoenvio_proceso: number,
 	id_centroformativo: number,
 	id_ministerio: number,
+	numero_lista: number,
 	id_causacambio_centroformativo: number,
 	id_causacambio_ministerio: number,
 	interes_misionero: boolean,

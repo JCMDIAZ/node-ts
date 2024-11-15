@@ -8,8 +8,9 @@ import { getPathGeneracion, getPathListGeneraciones, getSchemaGeneracion, getSch
 import { getPathCentrosFormacionList, getPathCentrosFormacion, getSchemaCentrosFormacion, getSchemaCentrosFormacionList } from "./centrosformacion";
 import { getPathParroquias, getPathParroquiasList, getSchemaParroquias, getSchemaParroquiasList } from "./parroquias";
 import { getPathDatosRegistro, getPathDatosRegistroId, getPathDatosRegistroIMC, getSchemaDatosRegistro } from "./datos_registro";
-import { getPathDatosInscripcion, getPathDatosInscripcionId, getPathDatosInscripcionIMC, getSchemaDatosInscripcion } from "./datos_inscripcion";
+import { getPathDatosInscripcion, getPathDatosInscripcionId, getPathDatosInscripcionIMC, getSchemaDatosInscripcion, getPathDatosInscripcionNL } from "./datos_inscripcion";
 import { getPathDatosDomicilio, getPathDatosDomicilioId, getPathDatosDomicilioIMC, getSchemaDatosDomicilio } from "./datos_domicilio";
+import { getPathDatosEstadoCivil, getPathDatosEstadoCivilId, getPathDatosEstadoCivilIMC, getSchemaDatosEstadoCivil } from "./datos_estadocivil";
 
 /**
  * API Config Info
@@ -40,7 +41,8 @@ const swaggerDefinition: OAS3Definition = {
     { name: "Parroquias", description:"Área de Parroquias" },
     { name: "Datos Registro", description:"Área de Datos Registro" },
     { name: "Datos Inscripción", description:"Área de Datos Inscripción" },
-    { name: "Datos Domicilio", description:"Área de Datos Domicilio" },    
+    { name: "Datos Domicilio", description:"Área de Datos Domicilio" },
+    { name: "Datos Estado Civil", description:"Área de Datos del Esatdo Civil" },
   ],
   components: {
     securitySchemes:{
@@ -67,6 +69,7 @@ const swaggerDefinition: OAS3Definition = {
       datos_registro: getSchemaDatosRegistro,
       datos_inscripcion: getSchemaDatosInscripcion,
       datos_dimicilio: getSchemaDatosDomicilio,
+      datos_estadocivil: getSchemaDatosEstadoCivil,
     },
   },
   paths:{
@@ -93,9 +96,13 @@ const swaggerDefinition: OAS3Definition = {
     "/datos_inscripcion/": getPathDatosInscripcion,
     "/datos_inscripcion/{id}": getPathDatosInscripcionId,
     "/datos_inscripcion/{id_registro}": getPathDatosInscripcionIMC,
+    "/datos_inscripcion/numerolista/{id_generacion}/{id_centroformativo}": getPathDatosInscripcionNL,
     "/datos_domicilio/": getPathDatosDomicilio,
     "/datos_domicilio/{id}": getPathDatosDomicilioId,
     "/datos_domicilio/{id_registro}": getPathDatosDomicilioIMC,
+    "/datos_estadocivil/": getPathDatosEstadoCivil,
+    "/datos_estadocivil/{id}": getPathDatosEstadoCivilId,
+    "/datos_estadocivil/{id_registro}": getPathDatosEstadoCivilIMC,
   }
 };
 

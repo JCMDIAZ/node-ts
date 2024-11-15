@@ -7,7 +7,8 @@ const getSchemaDatosInscripcion = {
         "parrocoenvio_nombre",
         "parrocoenvio_proceso",
         "id_centroformativo",
-        "id_ministerio"
+        "id_ministerio",
+        "numero_lista",
     ],
     properties: {
         id_registro: {
@@ -31,6 +32,9 @@ const getSchemaDatosInscripcion = {
         id_ministerio: {
             type: "integer",
         },
+        numero_lista: {
+          type: "integer",
+        },
         id_causacambio_centroformativo: {
             type: "integer",
         },
@@ -51,7 +55,7 @@ const getSchemaDatosInscripcion = {
 
   const getPathDatosInscripcion = {
     "post": {
-      "tags": ["DatosInscripcion"],
+      "tags": ["Datos Inscripción"],
       "summary": "Ingresar información de la Inscripción.",
       "description": "Ingresar una Inscripción y obtener el detalle.",
       "security": [{"bearerAuth":[]}],
@@ -88,7 +92,7 @@ const getSchemaDatosInscripcion = {
 
   const getPathDatosInscripcionId = {
     "put": {
-      "tags": ["DatosInscripcion"],
+      "tags": ["Datos Inscripción"],
       "summary": "Actualiza inscripción.",
       "description": "Actualiza una inscripción y obtenie el detalle.",
       "security": [{"bearerAuth":[]}],
@@ -134,7 +138,7 @@ const getSchemaDatosInscripcion = {
 
   const getPathDatosInscripcionIMC = {
     "get": {
-      "tags": ["DatosInscripcion"],
+      "tags": ["Datos Inscripción"],
       "summary": "Detalle de la Inscripción.",
       "description": "Obtenie el detalle de la Inscripción.",
       "security": [{"bearerAuth":[]}],
@@ -178,4 +182,58 @@ const getSchemaDatosInscripcion = {
     },
   };
 
-  export { getSchemaDatosInscripcion, getPathDatosInscripcion, getPathDatosInscripcionId, getPathDatosInscripcionIMC }
+  const getPathDatosInscripcionNL = {
+    "get": {
+      "tags": ["Datos Inscripción"],
+      "summary": "Detalle del número de lista.",
+      "description": "Obtenie el número de lista.",
+      "security": [{"bearerAuth":[]}],
+      "parameters": [{
+        "name":"id_generacion",
+        "in":"path",
+        "description": "ID de la generación a retornar",
+        "required":true,
+        "schema": {
+          "type":"string"
+        }
+      },{
+        "name":"id_centroformativo",
+        "in":"path",
+        "description": "ID del Centro a retornar",
+        "required":true,
+        "schema": {
+          "type":"string"
+        }
+      }],
+      "requestBody": {
+        "required": true,
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref":"#/components/schemas/datos_inscripcion",
+            }
+          }
+        }
+      },
+      "responses":{
+        "200":{ 
+          "description":"Obtenie el detalle de la Inscripción.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "$ref":"#/components/schemas/datos_inscripcion",
+                }
+              }
+            }
+          }
+        },
+        "401":{ "description":"Error de autorización." },
+        "403":{ "description":"Error de permisos." },
+        "422":{ "description":"Error de validación." },
+      }
+    },
+  };
+
+  export { getSchemaDatosInscripcion, getPathDatosInscripcion, getPathDatosInscripcionId, getPathDatosInscripcionIMC, getPathDatosInscripcionNL }

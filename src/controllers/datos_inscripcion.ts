@@ -1,6 +1,6 @@
 import { Request, Response } from "express"
 import { handleHttpError } from "../utils/handleError";
-import { getDatosInscripcionBy, insertDatosInscripcion, updateDatosInscripcion } from "../services/datos_inscrpcion";
+import { getDatosInscripcionBy, insertDatosInscripcion, updateDatosInscripcion, nextNumeroLista } from "../services/datos_inscrpcion";
 import { RequestExt, User } from "../interface/users.interface";
 
 /**
@@ -12,6 +12,21 @@ const getItem = async ({ params, user }: RequestExt, res: Response) => {
     try {
         const { id_registro } = params;
         const responseDatosInscripcion = await getDatosInscripcionBy(parseInt(id_registro));
+        res.send({ responseDatosInscripcion, user });
+    } catch (e) {
+        handleHttpError(res,"ERROR_GET_ITEM");
+    }
+};
+
+/**
+ * Traer un registro
+ * @param {*} req 
+ * @param {*} res 
+ */
+const nextNL = async ({ params, user }: RequestExt, res: Response) => {
+    try {
+        const { id_generacion, id_centroformativo } = params;
+        const responseDatosInscripcion = await nextNumeroLista(parseInt(id_generacion), parseInt(id_centroformativo));
         res.send({ responseDatosInscripcion, user });
     } catch (e) {
         handleHttpError(res,"ERROR_GET_ITEM");
@@ -48,4 +63,4 @@ const updateItem = async ({ params, body, user }: RequestExt, res: Response) => 
     };
 };
 
-export { getItem, createItem, updateItem }
+export { getItem, createItem, updateItem, nextNL }

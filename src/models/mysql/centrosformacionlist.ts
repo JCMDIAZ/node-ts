@@ -7,6 +7,10 @@ interface CentrosFormacionListModel extends CentrosFormacionList,Model<InferAttr
 const CentrosFormacionListModel = sequelize.define<CentrosFormacionListModel>(
     "centrosformacionlist",
     {
+        id: {
+            type: DataTypes.INTEGER,
+            primaryKey: true,
+        },
         centro_numero: {
             type: DataTypes.INTEGER,
         },

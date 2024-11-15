@@ -7,7 +7,7 @@ interface DatosInscripcionModel extends DatosInscripcion,Model<InferAttributes<D
 };
 
 const DatosInscripcionModel = sequelize.define<DatosInscripcionModel>(
-    "datos_registro",
+    "datos_inscripcion",
     {
         id: {
             autoIncrement: true,
@@ -33,6 +33,9 @@ const DatosInscripcionModel = sequelize.define<DatosInscripcionModel>(
             type: DataTypes.INTEGER,
         },
         id_ministerio: {
+            type: DataTypes.INTEGER,
+        },
+        numero_lista: {
             type: DataTypes.INTEGER,
         },
         id_causacambio_centroformativo: {

@@ -1,92 +1,80 @@
-const getSchemaDatosDomicilio = {
+const getSchemaDatosEstadoCivil = {
     type: "object",
     required: [
         "id_registro",
-        "calle",
-        "numeroexterior",
-        "numerointerior",
-        "colonia",
-        "municipio",
-        "estado",
-        "codigopostal",
-        "referencias",
-        "telefono",
-        "tipovivienda",
-        "estatusvivienda",
-        "vivecon",
-        "domicilioactual"
+        "id_estadocivil",
+        "conyuge_nombres",
+        "conyuge_primerapellido",
+        "conyuge_segundoapellido",
+        "conyuge_fechanacimiento",
+        "conyuge_fechadefunsion",
+        "matrimoniocivil_fecha",
+        "matrimoniocivil_fechaseparacion",
+        "matrimoniocivil_constancia",
+        "totalhijos"
     ],
     properties: {
         id_registro: {
-            type: "string",
-        },
-        calle: {
-            type: "string",
-        },
-        numeroexterior: {
-            type: "string",
-        },
-        numerointerior: {
-            type: "string",
-        },
-        colonia: {
-            type: "string",
-        },
-        municipio: {
-            type: "string",
-        },
-        estado: {
-            type: "string",
-        },
-        codigopostal: {
-            type: "string",
-        },
-        referencias: {
-            type: "string",
-        },
-        telefono: {
-            type: "string",
-        },
-        tipovivienda: {
             type: "integer",
         },
-        estatusvivienda: {
+        id_estadocivil: {
             type: "integer",
         },
-        vivecon: {
-            type: "integer",
+        conyuge_nombres: {
+            type: "string",
         },
-        domicilioactual: {
-            type: "boolean",
+        conyuge_primerapellido: {
+            type: "string",
+        },
+        conyuge_segundoapellido: {
+            type: "string",
+        },
+        conyuge_fechanacimiento: {
+            type: "date",
+        }, 	
+        conyuge_fechadefunsion: {
+            type: "date",
+        },
+        matrimoniocivil_fecha: {
+            type: "date",
+        },
+        matrimoniocivil_fechaseparacion: {
+            type: "date",
+        },
+        matrimoniocivil_constancia: {
+            type: "boolean"
+        },
+        totalhijos: {
+            type: "integer",
         },
     },
   };
 
-  const getPathDatosDomicilio = {
+  const getPathDatosEstadoCivil = {
     "post": {
-      "tags": ["Datos Domicilio"],
-      "summary": "Ingresar información del Domicilio del aspirante.",
-      "description": "Ingresar el domicilio y obtener el detalle.",
+      "tags": ["Datos Estado Civil"],
+      "summary": "Ingresar información del Estado Civil del aspirante.",
+      "description": "Ingresar información del Estado Civil y obtener el detalle.",
       "security": [{"bearerAuth":[]}],
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref":"#/components/schemas/datos_domicilio",
+              "$ref":"#/components/schemas/datos_estadocivil",
             }
           }
         }
       },
       "responses":{
         "200":{ 
-          "description":"Ingresar el domicilio y obtener el detalle.",
+          "description":"Ingresar información del Estado Civil y obtener el detalle.",
           "content": {
             "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref":"#/components/schemas/datos_domicilio",
+                  "$ref":"#/components/schemas/datos_estadocivil",
                 }
               }
             }
@@ -99,11 +87,11 @@ const getSchemaDatosDomicilio = {
     }
   };
 
-  const getPathDatosDomicilioId = {
+  const getPathDatosEstadoCivilId = {
     "put": {
-      "tags": ["Datos Domicilio"],
-      "summary": "Actualiza domicilio.",
-      "description": "Actualiza un domicilio y obtenie el detalle.",
+      "tags": ["Datos Estado Civil"],
+      "summary": "Actualiza Esatdo Civil.",
+      "description": "Actualiza el Estado Civil y obtenie el detalle.",
       "security": [{"bearerAuth":[]}],
       "parameters": [{
         "name":"id",
@@ -119,20 +107,20 @@ const getSchemaDatosDomicilio = {
         "content": {
           "application/json": {
             "schema": {
-              "$ref":"#/components/schemas/datos_domicilio",
+              "$ref":"#/components/schemas/datos_estadocivil",
             }
           }
         }
       },
       "responses":{
         "200":{ 
-          "description":"Actualiza un domicilio y obtenie el detalle.",
+          "description":"Actualiza el Estado Civil y obtenie el detalle.",
           "content": {
             "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref":"#/components/schemas/datos_domicilio",
+                  "$ref":"#/components/schemas/datos_estadocivil",
                 }
               }
             }
@@ -145,11 +133,11 @@ const getSchemaDatosDomicilio = {
     },
   };
 
-  const getPathDatosDomicilioIMC = {
+  const getPathDatosEstadoCivilIMC = {
     "get": {
-      "tags": ["Datos Domicilio"],
-      "summary": "Detalle del domicilio.",
-      "description": "Obtenie el detalle del domicilio.",
+      "tags": ["Datos Estado Civil"],
+      "summary": "Detalle del Esatdo Civil.",
+      "description": "Obtenie el detalle del Estado Civil.",
       "security": [{"bearerAuth":[]}],
       "parameters": [{
         "name":"id_registro",
@@ -165,20 +153,20 @@ const getSchemaDatosDomicilio = {
         "content": {
           "application/json": {
             "schema": {
-              "$ref":"#/components/schemas/datos_domicilio",
+              "$ref":"#/components/schemas/datos_estadocivil",
             }
           }
         }
       },
       "responses":{
         "200":{ 
-          "description":"Obtenie el detalle del domicilio.",
+          "description":"Obtenie el detalle del Estado Civil.",
           "content": {
             "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref":"#/components/schemas/datos_domicilio",
+                  "$ref":"#/components/schemas/datos_estadocivil",
                 }
               }
             }
@@ -191,4 +179,4 @@ const getSchemaDatosDomicilio = {
     },
   };
 
-  export { getSchemaDatosDomicilio, getPathDatosDomicilio, getPathDatosDomicilioId, getPathDatosDomicilioIMC }
+  export { getSchemaDatosEstadoCivil, getPathDatosEstadoCivil, getPathDatosEstadoCivilId, getPathDatosEstadoCivilIMC }
