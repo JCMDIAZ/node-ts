@@ -11,6 +11,7 @@ import { getPathDatosRegistro, getPathDatosRegistroId, getPathDatosRegistroIMC, 
 import { getPathDatosInscripcion, getPathDatosInscripcionId, getPathDatosInscripcionIMC, getSchemaDatosInscripcion, getPathDatosInscripcionNL } from "./datos_inscripcion";
 import { getPathDatosDomicilio, getPathDatosDomicilioId, getPathDatosDomicilioIMC, getSchemaDatosDomicilio } from "./datos_domicilio";
 import { getPathDatosEstadoCivil, getPathDatosEstadoCivilId, getPathDatosEstadoCivilIMC, getSchemaDatosEstadoCivil } from "./datos_estadocivil";
+import { getPathDatosEscolaridad, getPathDatosEscolaridadId, getPathDatosEscolaridadIMC, getSchemaDatosEscolaridad } from "./datos_escolaridad";
 
 /**
  * API Config Info
@@ -43,6 +44,7 @@ const swaggerDefinition: OAS3Definition = {
     { name: "Datos Inscripción", description:"Área de Datos Inscripción" },
     { name: "Datos Domicilio", description:"Área de Datos Domicilio" },
     { name: "Datos Estado Civil", description:"Área de Datos del Esatdo Civil" },
+    { name: "Datos Escolaridad", description:"Área de Datos de la Escolaridad" },
   ],
   components: {
     securitySchemes:{
@@ -70,6 +72,7 @@ const swaggerDefinition: OAS3Definition = {
       datos_inscripcion: getSchemaDatosInscripcion,
       datos_dimicilio: getSchemaDatosDomicilio,
       datos_estadocivil: getSchemaDatosEstadoCivil,
+      datos_escolaridad: getSchemaDatosEscolaridad,
     },
   },
   paths:{
@@ -103,6 +106,9 @@ const swaggerDefinition: OAS3Definition = {
     "/datos_estadocivil/": getPathDatosEstadoCivil,
     "/datos_estadocivil/{id}": getPathDatosEstadoCivilId,
     "/datos_estadocivil/{id_registro}": getPathDatosEstadoCivilIMC,
+    "/datos_escolaridad/": getPathDatosEscolaridad,
+    "/datos_escolaridad/{id}": getPathDatosEscolaridadId,
+    "/datos_escolaridad/{id_registro}": getPathDatosEscolaridadIMC,
   }
 };
 

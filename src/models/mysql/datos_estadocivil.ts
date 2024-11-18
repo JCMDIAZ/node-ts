@@ -35,6 +35,9 @@ const DatosEstadoCivilModel = sequelize.define<DatosEstadoCivilModel>(
         conyuge_fechadefunsion: {
             type: DataTypes.DATE,
         },
+        conyuge_numerocelular: {
+            type: DataTypes.STRING,
+        },
         matrimoniocivil_fecha: {
             type: DataTypes.DATE,
         },

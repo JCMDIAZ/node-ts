@@ -1,83 +1,56 @@
-const getSchemaDatosEstadoCivil = {
+const getSchemaDatosEscolaridad = {
     type: "object",
     required: [
         "id_registro",
-        "id_estadocivil",
-        "conyuge_nombres",
-        "conyuge_primerapellido",
-        "conyuge_segundoapellido",
-        "conyuge_fechanacimiento",
-        "conyuge_fechadefunsion",
-        "matrimoniocivil_fecha",
-        "matrimoniocivil_fechaseparacion",
-        "matrimoniocivil_constancia",
-        "totalhijos"
+        "gradoestudio",
+        "gradoestudio_estatus",
+        "gradoestudio_carrera",
+        "gradoestudio_aniotermino"
     ],
     properties: {
         id_registro: {
             type: "integer",
         },
-        id_estadocivil: {
+        gradoestudio: {
             type: "integer",
         },
-        conyuge_nombres: {
+        gradoestudio_estatus: {
+            type: "integer",
+        },
+        gradoestudio_carrera: {
             type: "string",
         },
-        conyuge_primerapellido: {
-            type: "string",
-        },
-        conyuge_segundoapellido: {
-            type: "string",
-        },
-        conyuge_fechanacimiento: {
-            type: "date",
-        }, 	
-        conyuge_fechadefunsion: {
-            type: "date",
-        },
-        conyuge_numerocelular: {
-            type: "string",
-        },
-        matrimoniocivil_fecha: {
-            type: "date",
-        },
-        matrimoniocivil_fechaseparacion: {
-            type: "date",
-        },
-        matrimoniocivil_constancia: {
-            type: "boolean"
-        },
-        totalhijos: {
+        gradoestudio_aniotermino: {
             type: "integer",
         },
     },
   };
 
-  const getPathDatosEstadoCivil = {
+  const getPathDatosEscolaridad = {
     "post": {
-      "tags": ["Datos Estado Civil"],
-      "summary": "Ingresar información del Estado Civil del aspirante.",
-      "description": "Ingresar información del Estado Civil y obtener el detalle.",
+      "tags": ["Datos Escolaridad"],
+      "summary": "Ingresar información de la Escolaridad del aspirante.",
+      "description": "Ingresar información de la Escolaridad y obtener el detalle.",
       "security": [{"bearerAuth":[]}],
       "requestBody": {
         "required": true,
         "content": {
           "application/json": {
             "schema": {
-              "$ref":"#/components/schemas/datos_estadocivil",
+              "$ref":"#/components/schemas/datos_escolaridad",
             }
           }
         }
       },
       "responses":{
         "200":{ 
-          "description":"Ingresar información del Estado Civil y obtener el detalle.",
+          "description":"Ingresar información de la Escolaridad y obtener el detalle.",
           "content": {
             "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref":"#/components/schemas/datos_estadocivil",
+                  "$ref":"#/components/schemas/datos_escolaridad",
                 }
               }
             }
@@ -90,11 +63,11 @@ const getSchemaDatosEstadoCivil = {
     }
   };
 
-  const getPathDatosEstadoCivilId = {
+  const getPathDatosEscolaridadId = {
     "put": {
-      "tags": ["Datos Estado Civil"],
-      "summary": "Actualiza Esatdo Civil.",
-      "description": "Actualiza el Estado Civil y obtenie el detalle.",
+      "tags": ["Datos Escolaridad"],
+      "summary": "Actualiza Escolaridad del aspirante.",
+      "description": "Actualiza la Escolaridad y obtenie el detalle.",
       "security": [{"bearerAuth":[]}],
       "parameters": [{
         "name":"id",
@@ -110,20 +83,20 @@ const getSchemaDatosEstadoCivil = {
         "content": {
           "application/json": {
             "schema": {
-              "$ref":"#/components/schemas/datos_estadocivil",
+              "$ref":"#/components/schemas/datos_escolaridad",
             }
           }
         }
       },
       "responses":{
         "200":{ 
-          "description":"Actualiza el Estado Civil y obtenie el detalle.",
+          "description":"Actualiza la Escolaridad y obtenie el detalle.",
           "content": {
             "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref":"#/components/schemas/datos_estadocivil",
+                  "$ref":"#/components/schemas/datos_esolaridad",
                 }
               }
             }
@@ -136,11 +109,11 @@ const getSchemaDatosEstadoCivil = {
     },
   };
 
-  const getPathDatosEstadoCivilIMC = {
+  const getPathDatosEscolaridadIMC = {
     "get": {
-      "tags": ["Datos Estado Civil"],
-      "summary": "Detalle del Esatdo Civil.",
-      "description": "Obtenie el detalle del Estado Civil.",
+      "tags": ["Datos Escolaridad"],
+      "summary": "Detalle de la Escolaridad del aspirante.",
+      "description": "Obtenie el detalle de la Escolaridad.",
       "security": [{"bearerAuth":[]}],
       "parameters": [{
         "name":"id_registro",
@@ -156,20 +129,20 @@ const getSchemaDatosEstadoCivil = {
         "content": {
           "application/json": {
             "schema": {
-              "$ref":"#/components/schemas/datos_estadocivil",
+              "$ref":"#/components/schemas/datos_escolaridad",
             }
           }
         }
       },
       "responses":{
         "200":{ 
-          "description":"Obtenie el detalle del Estado Civil.",
+          "description":"Obtenie el detalle de la Escolaridad.",
           "content": {
             "application/json": {
               "schema": {
                 "type": "array",
                 "items": {
-                  "$ref":"#/components/schemas/datos_estadocivil",
+                  "$ref":"#/components/schemas/datos_escolaridad",
                 }
               }
             }
@@ -182,4 +155,4 @@ const getSchemaDatosEstadoCivil = {
     },
   };
 
-  export { getSchemaDatosEstadoCivil, getPathDatosEstadoCivil, getPathDatosEstadoCivilId, getPathDatosEstadoCivilIMC }
+  export { getSchemaDatosEscolaridad, getPathDatosEscolaridad, getPathDatosEscolaridadId, getPathDatosEscolaridadIMC }

@@ -1,6 +1,5 @@
 import DatosEstadoCivilModel from "../models/mysql/datos_estadocivil";
 import { DatosEstadoCivil } from "../interface/datos_estadocivil";
-import Response from 'express';
 
 const getDatosEstadoCicvilBy = async (id_registro: number) => {
     const responseDatosEstadoCivil = await DatosEstadoCivilModel.sequelize?.query(
