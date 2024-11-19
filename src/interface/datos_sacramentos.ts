@@ -1,0 +1,20 @@
+export interface DatosSacramentos {
+	id_registro: number,
+	bautizo: boolean,
+	bautizo_fecha: Date,
+	bautizo_lugar: string,
+	bautizo_parroquia:string,
+	bautizo_constancia: boolean,
+	confirmacion: boolean,
+	confirmacion_fecha: Date,
+	confirmacion_lugar: string,
+	confirmacion_parroquia: string,
+	confirmacion_constancia: boolean,
+	matrimonio: boolean,
+	matrimonio_fecha: Date,
+	matrimonio_lugar: string,
+	matrimonio_parroquia: string,
+	matrimonio_constancia: boolean,
+	periodicidad_reconciliacion: number,
+	periodicidad_eucaristia: number
+}
