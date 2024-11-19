@@ -12,6 +12,7 @@ import { getPathDatosInscripcion, getPathDatosInscripcionId, getPathDatosInscrip
 import { getPathDatosDomicilio, getPathDatosDomicilioId, getPathDatosDomicilioIMC, getSchemaDatosDomicilio } from "./datos_domicilio";
 import { getPathDatosEstadoCivil, getPathDatosEstadoCivilId, getPathDatosEstadoCivilIMC, getSchemaDatosEstadoCivil } from "./datos_estadocivil";
 import { getPathDatosEscolaridad, getPathDatosEscolaridadId, getPathDatosEscolaridadIMC, getSchemaDatosEscolaridad } from "./datos_escolaridad";
+import { getPathDatosLaboral, getPathDatosLaboralId, getPathDatosLaboralIMC, getSchemaDatosLaboral } from "./datos_laboral";
 
 /**
  * API Config Info
@@ -45,6 +46,7 @@ const swaggerDefinition: OAS3Definition = {
     { name: "Datos Domicilio", description:"Área de Datos Domicilio" },
     { name: "Datos Estado Civil", description:"Área de Datos del Esatdo Civil" },
     { name: "Datos Escolaridad", description:"Área de Datos de la Escolaridad" },
+    { name: "Datos Laboral", description:"Área de Datos de la Información Laboral" },
   ],
   components: {
     securitySchemes:{
@@ -73,6 +75,7 @@ const swaggerDefinition: OAS3Definition = {
       datos_dimicilio: getSchemaDatosDomicilio,
       datos_estadocivil: getSchemaDatosEstadoCivil,
       datos_escolaridad: getSchemaDatosEscolaridad,
+      datos_laboral: getSchemaDatosLaboral,
     },
   },
   paths:{
@@ -109,6 +112,9 @@ const swaggerDefinition: OAS3Definition = {
     "/datos_escolaridad/": getPathDatosEscolaridad,
     "/datos_escolaridad/{id}": getPathDatosEscolaridadId,
     "/datos_escolaridad/{id_registro}": getPathDatosEscolaridadIMC,
+    "/datos_laboral/": getPathDatosLaboral,
+    "/datos_laboral/{id}": getPathDatosLaboralId,
+    "/datos_laboral/{id_registro}": getPathDatosLaboralIMC,
   }
 };
 

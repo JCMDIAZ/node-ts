@@ -2,7 +2,7 @@ import { Request, Response, Router } from "express";
 const router = Router();
 
 import { authMiddleware } from "../middleware/sessions";
-import { validatorDatosEscolaridad } from "../validators/datos_esccolaridad";
+import { validatorDatosEscolaridad } from "../validators/datos_escolaridad";
 import { getItem, createItem, updateItem }  from "../controllers/datos_escolaridad";
 
 router.get("/:id_registro", authMiddleware, getItem );
