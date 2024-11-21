@@ -21,8 +21,6 @@ const validatorDatosLaboral = [
     .exists(),
     check("labora_ocupacionoficio")
     .exists(),
-    check("labora_domicilio")
-    .exists(),
     (req:Request, res:Response, next:NextFunction) => {
         return validateResults(req, res, next);
     }

@@ -16,7 +16,7 @@ const validatorDatosEscolaridad = [
     .notEmpty()
     .isNumeric(),
     check("gradoestudio_carrera")
-    .isLength({min:3,max:250}),        
+    .isLength({min:3,max:250}), 
     (req:Request, res:Response, next:NextFunction) => {
         return validateResults(req, res, next);
     }

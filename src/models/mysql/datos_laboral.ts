@@ -7,7 +7,7 @@ interface DatosLaboralModel extends DatosLaboral,Model<InferAttributes<DatosLabo
 };
 
 const DatosLaboralModel = sequelize.define<DatosLaboralModel>(
-    "datos_escolaridad",
+    "datos_laboral",
     {
         id: {
             autoIncrement: true,

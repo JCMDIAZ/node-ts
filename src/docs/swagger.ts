@@ -14,6 +14,8 @@ import { getPathDatosEstadoCivil, getPathDatosEstadoCivilId, getPathDatosEstadoC
 import { getPathDatosEscolaridad, getPathDatosEscolaridadId, getPathDatosEscolaridadIMC, getSchemaDatosEscolaridad } from "./datos_escolaridad";
 import { getPathDatosLaboral, getPathDatosLaboralId, getPathDatosLaboralIMC, getSchemaDatosLaboral } from "./datos_laboral";
 import { getPathDatosSacramentos, getPathDatosSacramentosId, getPathDatosSacramentosIMC, getSchemaDatosSacramentos } from "./datos_sacramentos";
+import { getPathDatosEspiritualidad, getPathDatosEspiritualidadId, getPathDatosEspiritualidadIMC, getSchemaDatosEspiritualidad } from "./datos_espiritualidad";
+import { getPathDatosHerramientas, getPathDatosHerramientasId, getPathDatosHerramientasIMC, getSchemaDatosHerramientas } from "./datos_herramientas";
 
 /**
  * API Config Info
@@ -49,6 +51,8 @@ const swaggerDefinition: OAS3Definition = {
     { name: "Datos Escolaridad", description:"Área de Datos de la Escolaridad" },
     { name: "Datos Laboral", description:"Área de Datos de la Información Laboral" },
     { name: "Datos Sacramentos", description:"Área de Datos de la Información de Sacramentos" },
+    { name: "Datos Espiritualidad", description:"Área de Datos de la Información de Espiritualidad" },
+    { name: "Datos Herramientas", description:"Área de Datos de la Información de Herramientas" },
   ],
   components: {
     securitySchemes:{
@@ -79,6 +83,8 @@ const swaggerDefinition: OAS3Definition = {
       datos_escolaridad: getSchemaDatosEscolaridad,
       datos_laboral: getSchemaDatosLaboral,
       datos_sacramentos: getSchemaDatosSacramentos,
+      datos_espiritualidad: getSchemaDatosEspiritualidad,
+      datos_herramientas: getSchemaDatosHerramientas,
     },
   },
   paths:{
@@ -121,6 +127,12 @@ const swaggerDefinition: OAS3Definition = {
     "/datos_sacramentos/": getPathDatosSacramentos,
     "/datos_sacramentos/{id}": getPathDatosSacramentosId,
     "/datos_sacramentos/{id_registro}": getPathDatosSacramentosIMC,
+    "/datos_espiritualidad/": getPathDatosEspiritualidad,
+    "/datos_espiritualidad/{id}": getPathDatosEspiritualidadId,
+    "/datos_espiritualidad/{id_registro}": getPathDatosEspiritualidadIMC,
+    "/datos_herramientas/": getPathDatosHerramientas,
+    "/datos_herramientas/{id}": getPathDatosHerramientasId,
+    "/datos_herramientas/{id_registro}": getPathDatosHerramientasIMC,
   }
 };
 
