@@ -7,7 +7,7 @@ interface DatosSacramentosModel extends DatosSacramentos,Model<InferAttributes<D
 };
 
 const DatosSacramentosModel = sequelize.define<DatosSacramentosModel>(
-    "datos_escolaridad",
+    "datos_sacramentos",
     {
         id: {
             autoIncrement: true,

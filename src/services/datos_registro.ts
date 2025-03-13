@@ -8,8 +8,8 @@ const getDatosRegistroBy = async (id: string|undefined, matricula: string|undefi
         {
             replacements: {
                 id: id??0,
-                matricula: matricula??'',
-                curp: curp??'',
+                matricula: matricula??'0',
+                curp: curp??'0',
             }
         });
     return responseDatosRegistro?.[0]; 

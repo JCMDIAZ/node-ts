@@ -11,8 +11,6 @@ const validatorDatosSacramentos = [
     .exists()
     .notEmpty()
     .isBoolean(),
-    check("bautizo_fecha")
-    .exists(),
     check("bautizo_lugar")
     .exists(),
     check("bautizo_constancia")
@@ -21,8 +19,6 @@ const validatorDatosSacramentos = [
     .exists()
     .notEmpty()
     .isBoolean(),
-    check("confirmacion_fecha")
-    .exists(),
     check("confirmacion_lugar")
     .exists(),
     check("confirmacion_constancia")
@@ -31,8 +27,6 @@ const validatorDatosSacramentos = [
     .exists()
     .notEmpty()
     .isBoolean(),
-    check("matrimonio_fecha")
-    .exists(),
     check("matrimonio_lugar")
     .exists(),
     check("matrimonio_constancia")

@@ -1,6 +1,6 @@
 import swaggerAutogen from 'swagger-autogen';
 
-const port = process.env.port || 3001;
+const port = process.env.port || 3000;
 
 const doc = {
     info: {
@@ -10,7 +10,7 @@ const doc = {
     },
     servers: [
       {
-        url: "http://localhost:3001/api",
+        url: "http://localhost:3000/api",
       },
       {
         url: "https://afternoon-journey-32165.herokuapp.com/api",

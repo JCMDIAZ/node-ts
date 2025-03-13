@@ -10,13 +10,13 @@ const validatorDatosHerramientas = [
     check("dispositivo")
     .exists()
     .notEmpty()
-    .isNumeric(),
+    .isBoolean(),
     check("dispositivo_especifique")
     .exists(),
     check("servicios")
     .exists()
     .notEmpty()
-    .isNumeric(),
+    .isBoolean(),
     check("servicios_especifique")
     .exists(),
     check("problemas_tecnicos")

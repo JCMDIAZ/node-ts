@@ -17,10 +17,6 @@ const validatorDatosLaboral = [
     .exists(),
     check("labora_diasdescanso")
     .exists(),
-    check("labora_nombreempresa")
-    .exists(),
-    check("labora_ocupacionoficio")
-    .exists(),
     (req:Request, res:Response, next:NextFunction) => {
         return validateResults(req, res, next);
     }

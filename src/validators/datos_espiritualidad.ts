@@ -7,8 +7,6 @@ const validatorDatosEspiritualidad = [
     .exists()
     .notEmpty()
     .isNumeric(),
-    check("fecha")
-    .exists(),
     check("cargocomunidad")
     .exists()
     .notEmpty()

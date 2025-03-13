@@ -7,7 +7,7 @@ interface DatosHerramientasModel extends DatosHerramientas,Model<InferAttributes
 };
 
 const DatosHerramientasModel = sequelize.define<DatosHerramientasModel>(
-    "datos_escolaridad",
+    "datos_herramientas",
     {
         id: {
             autoIncrement: true,

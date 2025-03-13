@@ -7,9 +7,6 @@ const UserScheme = new Schema<User>(
         name:{
             type:String
         },
-        age:{
-            type:Number
-        },
         email:{
             type:String,
             unique:true
